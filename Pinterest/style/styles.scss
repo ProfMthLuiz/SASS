@@ -1,0 +1,15 @@
+@import 'variables';
+@import 'responsive';
+@import 'header';
+@import 'banner';
+@import 'cards';
+@import 'choose';
+@import 'unmatched';
+@import 'footer';
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}

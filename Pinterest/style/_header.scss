@@ -1,0 +1,204 @@
+
+/* INICIO HEADER */
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50000;
+
+    &.sticky{
+
+        background: $light_color;
+
+        nav ul li a{
+            color: $primary-color;
+
+            &:before{
+                background: $primary-color;
+            }
+
+        }
+        
+    }
+}
+
+nav{
+    height: 80px;
+    background-color: transparent;
+
+    
+    @include xs{
+        background: $light_color;
+    }
+
+    @include sm{
+        background: $light_color;
+    }
+
+    .logo{
+        width: 100px;
+        position: absolute;
+        top: 17px;
+        left: 12%;
+        height: 60px;
+
+        @include xs{
+            left: 6%;
+            top: 20px;
+            width: 90px;
+            height: 50px;
+        }
+
+        @include sm{
+            left: 6%;
+            top: 20px;
+            width: 90px;
+            height: 50px;
+        }
+
+    }
+
+    ul{
+        float: right;
+        margin-right: 25px;
+
+        @include xs{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        @include sm{
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            background: white;
+            top: 80px;
+            left: -100%;
+            text-align: center;
+            transition: all .5s;
+        }
+
+        li{
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 15px;
+
+            @include xs{
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            a{
+                position: relative;
+                font-size: 18px;
+                text-transform: uppercase;
+                color: $dark_color;
+                cursor: pointer;
+                padding: 5px 0;
+
+                &:before{
+                    position: absolute;
+                    content: '';
+                    left: 0;
+                    bottom: 0;
+                    height: 1px;
+                    width: 100%;
+                    background: $dark_color;
+                    transform: scaleX(0);
+                    transform-origin: right;
+                    transition: transform .4s linear;
+                }
+
+                &:hover:before{
+                    transform: scaleX(1);
+                    transform-origin: left;
+                }
+
+                @include xs{
+                    font-size: 20px;
+                }
+
+                @include sm{
+                    font-size: 20px;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+label #btn,
+label #cancel{
+    color: $primary-color;
+    font-size: 30px;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+
+    @include xs{
+        display: block;
+    }
+
+    @include sm{
+        display: block;
+    }
+}
+
+#check{
+    @include xs{
+        display: none;
+    }
+
+    &:checked ~ ul{
+
+        @include xs{
+            left: 0;
+        }
+
+        @include sm{
+            left: 0;
+        }
+
+    }
+
+    &:checked ~ label #btn{
+
+        @include xs{
+            display: none;
+        }
+
+        @include sm{
+            display: none;
+        }
+
+    }
+
+    &:checked ~ label #cancel{
+
+        @include xs{
+            display: block;
+        }
+
+        @include sm{
+            display: block;
+        }
+
+    }
+    
+}
+
+/* FIM HEADER */

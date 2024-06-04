@@ -1,0 +1,89 @@
+/*
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+$text-color: orange;
+
+@mixin box-shadow(){
+    box-shadow: 3px 3px 4px 0px rgba($text-color, 0.6);
+}
+
+@mixin make-bold($bool){
+    @if $bool == true {
+        font-weight: bold;
+    }
+}
+
+@mixin text-effect($val){
+    @if $val == danger {
+        color: red;
+    }
+    @else if $val == alert {
+        color: yellow;
+    }@else{
+        color: black;
+    }
+}
+
+body{
+    background-color: #7159c1;
+    color: $text-color;
+}
+
+.container{
+
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    @include box-shadow();
+
+    p{
+
+        color: orange;
+        @include make-bold(true);
+        @include text-effect(danger);
+
+    }
+    
+} 
+
+*/ 
+
+@for $i from 1 through 5 {
+    .text-#{$i} {
+        font-size: 15px * $i;
+    }
+}
+
+$colors: (color1: blue, color2: red, color3: yellow);
+
+@each $key, $color in $colors{
+    .#{$color}-text { color: $color; }
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body{
+    @extend .flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+p{
+    color: red;
+    cursor: pointer;
+
+    &:hover{
+        color: blue;
+    }
+
+}
